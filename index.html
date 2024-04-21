@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP IoT Firebase FABLAB</title>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+
+
+  <script type="module" src="scripts/firebaseConfig.js">
+  </script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+  <div class="topnav">
+    <img src="assets/AQUAPONIA.png" alt="" width="9%">
+    <h1>AQUAPONIA IOT DASHBOARD</h1>
+  </div>
+
+
+  <div class="content-sign-in" id="content-sign-in">
+    <div class="cards">
+      <!--LED-->
+      <!--
+      <div class="card card-switch\">
+        <h4><i class="fas fa-lightbulb\"></i>ESTADO LED</h4><label class="switch"><input type="checkbox"
+            onchange="toggleLed(this);" id="led"><span class="slider"></span></label>
+      </div>
+      --->
+      <div class="card card-switch\">
+        <h4>PH</h4>
+        <span id="ph">0</span>
+      </div>
+      <div class="card card-switch\">
+        <h4>Temperatura</h4>
+        <span id="temp">0</span><span>°C</span>
+      </div>
+      <div>
+        <div class="card card-switch\">
+          <h4>Valvula Hidroponia</h4>
+          <img id="valvula-hidroponia" src="assets/valvula.png" alt="Bomba Aquario">
+        </div>
+      </div>
+      <div class="card card-switch\">
+        <h4>Bomba Aquario</h4>
+        <img id="bomba-aquario" src="assets/pump.png" alt="Bomba Aquario">
+
+        <h4>Bomba Cisterna</h4>
+        <img id="bomba-cisterna" src="assets/pump.png" alt="Bomba Cisterna">
+      </div>
+      <div class="card card-switch\">
+        <h4>Nível Aquario</h4>
+        <h4>Nivel Alto</h4>
+        <img id="nivel-alto-aquario" src="assets/up.png" alt="Bomba Aquario">
+        <h4>Nivel Baixo</h4>
+        <img id="nivel-baixo-aquario" src="assets/down.png" alt="Bomba Aquario">
+      </div>
+      <div class="card card-switch\">
+        <h4>Nível Cisterna</h4>
+        <h4>Nivel Alto</h4>
+        <img id="nivel-alto-cisterna" src="assets/up.png" alt="Bomba Aquario">
+        <h4>Nivel Baixo</h4>
+        <img id="nivel-baixo-cisterna" src="assets/down.png" alt="Bomba Aquario">
+      </div>
+      <div class="card card-switch\" style="max-height: 300px;">
+        <h4>Rotina de regagem</h4>
+        <div id="contagem">
+          <span>Ultima rotina: <span id="ultima-rotina"></span></span><br>
+          <span>Proxima rotina: <span id="proxima-rotina"></span></span>
+          <!---<span>Contagem regressiva: <span id="contagem-proxima-rotina"></span></span>-->
+        </div>
+
+        <img id="rotina-regagem" src="assets/folha.png" alt="Folha">
+        <audio id="start-som" src="assets/start.mp3" preload="auto"></audio>
+        <audio id="stop-som" src="assets/stop.mp3" preload="auto"></audio>
+
+      </div>
+
+    </div>
+
+    <!--CHARTS-->
+
+    <div id="charts-div">
+      <div>
+        <p> GRAFICOS</p>
+      </div>
+      <!--GRAFICO PH-->
+      <div id="cards-chart">
+        <div class="cards">
+          <div class="card">
+            <p><i class="fa-solid fa-droplet" style="color:#059e8a;"></i>GRAFICO PH</p>
+            <div id="chart-ph" class="chart-container"></div>
+          </div>
+        </div>
+        <!--GRAFICO Temperatura-->
+        <div class="cards">
+          <div class="card">
+            <p><i class="fa-solid fa-droplet" style="color:#059e8a;"></i>GRAFICO TEMPERATURA</p>
+            <div id="chart-temperature" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/charts-definitions.js"></script>
+</body>
+
+</html>
